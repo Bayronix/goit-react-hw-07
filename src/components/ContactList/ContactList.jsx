@@ -6,7 +6,7 @@ import {
   selectFilteredContacts,
   selectNameFilter,
 } from "../../redux/filtersSlice";
-import { fetchContacts } from "../../redux/contactOps";
+import { fetchContacts } from "../../redux/contactsOps";
 
 const ContactList = () => {
   const dispatch = useDispatch();
