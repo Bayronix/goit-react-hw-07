@@ -1,5 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+export const selectFilteredContacts = (state) => state.contacts.items;
+
 const initialState = {
   name: "",
 };

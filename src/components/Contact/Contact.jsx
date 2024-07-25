@@ -1,13 +1,13 @@
 import PropTypes from "prop-types";
 import { useDispatch } from "react-redux";
-import { deleteContacts } from "../../redux/contactOps";
+import { deleteContact } from "../../redux/contactOps";
 import styles from "./Contact.module.css";
 
 const Contact = ({ contact }) => {
   const dispatch = useDispatch();
 
   const handleDelete = () => {
-    dispatch(deleteContacts(contact.id));
+    dispatch(deleteContact(contact.id));
   };
 
   return (
