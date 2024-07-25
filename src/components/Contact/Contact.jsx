@@ -1,19 +1,19 @@
 import PropTypes from "prop-types";
 import { useDispatch } from "react-redux";
-import { deleteContact } from "../../redux/contactsSlice";
+import { deleteContacts } from "../../redux/contactOps";
 import styles from "./Contact.module.css";
 
 const Contact = ({ contact }) => {
   const dispatch = useDispatch();
 
   const handleDelete = () => {
-    dispatch(deleteContact(contact.id));
+    dispatch(deleteContacts(contact.id));
   };
 
   return (
     <li className={styles.list}>
       <span className={styles.name}>{contact.name}</span>:
-      <span className={styles.number}>{contact.number}</span>
+      <span className={styles.number}>{contact.number}</span>{" "}
       <button onClick={handleDelete} className={styles.button}>
         Delete
       </button>

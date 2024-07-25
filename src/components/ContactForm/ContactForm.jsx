@@ -1,7 +1,8 @@
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import { useDispatch } from "react-redux";
-import { addContact } from "../../redux/contactsSlice";
+import { addContacts } from "../../redux/contactOps";
+
 import styles from "./ContactForm.module.css";
 
 const validationSchema = Yup.object().shape({
@@ -19,7 +20,7 @@ const ContactForm = () => {
   const dispatch = useDispatch();
 
   const handleSubmit = (values, { resetForm }) => {
-    dispatch(addContact(values));
+    dispatch(addContacts(values));
     resetForm();
   };
 
@@ -32,14 +33,28 @@ const ContactForm = () => {
       onSubmit={handleSubmit}
       validationSchema={validationSchema}
     >
-      {() => (
+      {({ values, handleChange, handleBlur }) => (
         <Form className={styles.form}>
           <h3>Name</h3>
-          <Field className={styles.field} type="text" name="name" />
+          <Field
+            className={styles.field}
+            type="text"
+            name="name"
+            value={values.name}
+            onChange={handleChange}
+            onBlur={handleBlur}
+          />
           <ErrorMessage name="name" component="div" className={styles.error} />
 
           <h3>Phone Number</h3>
-          <Field className={styles.field} type="text" name="number" />
+          <Field
+            className={styles.field}
+            type="text"
+            name="number"
+            value={values.number}
+            onChange={handleChange}
+            onBlur={handleBlur}
+          />
           <ErrorMessage
             name="number"
             component="div"
