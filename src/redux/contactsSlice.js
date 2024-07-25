@@ -1,9 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { v4 as uuidv4 } from "uuid";
-import Contacts from "../components/ContactList/ContactList.json";
 
 const initialState = {
-  items: Contacts,
+  items: [],
 };
 
 const contactsSlice = createSlice({
